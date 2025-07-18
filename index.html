@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一路可口可乐 - 可口可乐中国</title>
+    <style>
+        :root {
+            --primary-color: #ea0000; /* 可口可乐红 */
+            --secondary-color: #000000; /* 黑色 */
+            --light-color: #ffffff; /* 白色 */
+            --gray-color: #f5f5f5; /* 浅灰色背景 */
+            --text-color: #333333; /* 文本颜色 */
+            --spacing: 16px;
+            --container-width: 1200px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+        /* 导航栏样式 */
+        header {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing) 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        /* 英雄区域样式 */
+        .hero {
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--light-color);
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: var(--light-color);
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #c80000;
+        }
+        /* 产品展示样式 */
+        .products {
+            padding: 48px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 32px;
+            color: var(--secondary-color);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        .product-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 200px;
+            width: 100%;
+        }
+        .product-info {
+            padding: 16px;
+        }
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        /* 关于我们样式 */
+        .about {
+            padding: 48px 0;
+            background-color: var(--gray-color);
+            margin: 48px 0;
+        }
+        .about-content {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            height: 300px;
+            border-radius: 8px;
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+        .footer-column a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">可口可乐</div>
+                <div class="nav-links">
+                    <a href="#">首页</a>
+                    <a href="#">产品</a>
+                    <a href="#">品牌故事</a>
+                    <a href="#">可持续发展</a>
+                    <a href="#">新闻中心</a>
+                    <a href="#">联系我们</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" style="background-color: var(--primary-color);">
+        <!-- 此处原为背景图片，现用色块代替 -->
+        <div class="container hero-content">
+            <h1>一路可口可乐</h1>
+            <p>分享快乐，畅饮每一刻</p>
+            <a href="#" class="btn">探索产品</a>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">我们的产品</h2>
+            <div class="product-grid">
+                <!-- 产品卡片 1 -->
+                <div class="product-card">
+                    <!-- 产品图片占位 - 替换为实际图片路径 -->
+                    <div class="product-image" style="background-color: #ffcc00;"></div>
+                    <div class="product-info">
+                        <h3>可口可乐原味</h3>
+                        <p>经典口味，畅爽体验</p>
+                    </div>
+                </div>
+                <!-- 产品卡片 2 -->
+                <div class="product-card">
+                    <!-- 产品图片占位 - 替换为实际图片路径 -->
+                    <div class="product-image" style="background-color: #0066cc;"></div>
+                    <div class="product-info">
+                        <h3>雪碧</h3>
+                        <p>清爽柠檬味，活力无限</p>
+                    </div>
+                </div>
+                <!-- 产品卡片 3 -->
+                <div class="product-card">
+                    <!-- 产品图片占位 - 替换为实际图片路径 -->
+                    <div class="product-image" style="background-color: #cc0000;"></div>
+                    <div class="product-info">
+                        <h3>芬达橙味</h3>
+                        <p>阳光果香，愉悦心情</p>
+                    </div>
+                </div>
+                <!-- 产品卡片 4 -->
+                <div class="product-card">
+                    <!-- 产品图片占位 - 替换为实际图片路径 -->
+                    <div class="product-image" style="background-color: #66cc00;"></div>
+                    <div class="product-info">
+                        <h3>怡泉苏打水</h3>
+                        <p>纯净气泡，焕发活力</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>关于可口可乐中国</h2>
+                    <p>可口可乐公司是全球最大的饮料公司之一，1886年诞生于美国亚特兰大。自1979年重返中国市场以来，可口可乐已成为中国消费者最喜爱的饮料品牌之一。我们致力于为消费者提供高品质的饮料产品，同时积极参与公益事业，推动可持续发展。</p>
+                    <a href="#" class="btn" style="margin-top: 16px;">了解更多</a>
+                </div>
+                <!-- 关于我们图片占位 - 替换为实际图片路径 -->
+                <div class="about-image" style="background-color: #f0f0f0;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">企业文化</a></li>
+                        <li><a href="#">可持续发展</a></li>
+                        <li><a href="#">投资者关系</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>产品中心</h3>
+                    <ul>
+                        <li><a href="#">碳酸饮料</a></li>
+                        <li><a href="#">果汁饮料</a></li>
+                        <li><a href="#">饮用水</a></li>
+                        <li><a href="#">茶饮料</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>新闻中心</h3>
+                    <ul>
+                        <li><a href="#">公司新闻</a></li>
+                        <li><a href="#">品牌活动</a></li>
+                        <li><a href="#">媒体资源</a></li>
+                        <li><a href="#">视频中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">反馈建议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 可口可乐中国. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
