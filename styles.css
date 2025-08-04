@@ -1,0 +1,306 @@
+/* CSS变量定义 - 集中管理全局样式值，便于统一修改 */
+:root {
+    --primary-color: #fafafa; /* 可口可乐红 - 品牌主色调 */
+    --secondary-color: #000000; /* 黑色 - 次要文本颜色 */
+    --light-color: #000000; /* 白色 - 背景色和文本色 */
+    --gray-color: #000000; /* 浅灰色 - 辅助背景色 */
+    --bg-color: #F0F1F3; /* 背景色 - 使用浅灰色 */
+    --text-color: #ffffff; /* 默认文本颜色 */
+    --spacing: 20px; /* 基础间距单位 - 统一页面元素间距 */
+    --container-width: 1500px; /* 容器最大宽度 - 控制页面内容宽度 */
+}
+
+/* 全局重置 - 清除默认浏览器样式，确保跨浏览器一致性 */
+* {
+    margin: 0; /* 清除默认外边距 */
+    padding: 0; /* 清除默认内边距 */
+    box-sizing: border-box; /* 盒模型设置 - 宽度包含边框和内边距 */
+    font-family: Arial, sans-serif; /* 默认字体设置 */
+}
+
+/* 页面主体样式 */
+body {
+    color: var(--text-color); /* 使用变量设置文本颜色 */
+    line-height: 1.6; /* 行高设置 - 提高文本可读性 */
+}
+
+/* 导航栏样式 */
+header {
+    height: 60px;
+    display: flex;
+    align-items: center; /* 垂直居中对齐子元素 */
+    background-color: var(--light-color); /* 使用变量设置背景色 */
+    box-shadow: 0 2px 4px rgba(238, 235, 235, 0.1); /* 添加阴影效果 - 增强层次感 */
+    position:sticky; /* 粘性定位 - 滚动时保持在顶部 */
+    top: 0; /* 距离顶部位置 */
+    z-index: 100; /* 堆叠顺序 - 确保导航栏在其他元素上方 */
+}
+
+/* 导航栏容器 - 控制整体布局 */
+nav {
+    display: flex; /* 使用弹性布局 */
+    justify-content: space-between; /* 两端对齐（logo居左，链接居右） */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 0 0; /* 移除所有内边距，使导航栏内容紧贴边缘 */
+}
+
+.logo {
+    font-size: 24px; /* 字体大小 */
+    font-weight:550; /* 字体粗细 - 加粗显示 */
+    margin-left: 0px; /* 向左移动20px，可根据需要调整数值 */
+    color: white; /* 使用品牌主色调 */
+}
+
+/* 导航链接容器 - 控制整体布局 */
+.nav-links {
+    display: flex; /* 使用弹性布局排列链接 */
+    gap: 73px; /* 链接之间的间距 */
+}
+
+/* 导航链接样式 - 控制单个链接外观 */
+.nav-links a {
+    text-decoration: none; /* 移除下划线 */
+    color: white; /* 使用次要颜色作为文本色 */
+    font-weight: 500; /* 设置字体粗细 */
+    position: relative; /* 相对定位 - 为下划线绝对定位做准备 */
+}
+
+.nav-links a:hover::after {
+    content: ''; /* 生成伪元素 */
+    position: absolute; /* 绝对定位 */
+    bottom: -17px; /* 距离底部位置 */
+    left: 0; /* 左侧对齐 */
+    width: 100%; /* 宽度占满父元素 */
+    height: 3px; /* 下划线高度 */
+    background-color: #e91e63; /* 深粉色 - 下划线颜色 */
+}
+
+/* 英雄区域样式 - 控制图片区域大小 */
+.hero {
+    width: 100%;
+    max-width: 1460px;
+    height: auto;
+    aspect-ratio: 21/9;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    background-size: contain; /* 改为contain确保图片完整显示 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f0f0f0; /* 添加背景色，当图片比例与容器不同时显示 */
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #CCCCCC; /* 非当前页灰色 */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #007AFF; /* 当前页蓝色 */
+    transform: scale(1.2); /* 轻微放大当前页指示器 */
+}
+
+    /* 替换图片步骤：
+        1. 将url()中的链接替换为实际图片路径（本地路径如'images/hero-bg.jpg'或网络图片URL）
+        2. 如需调整图片显示方式，可修改以下属性：
+           - background-size: 控制图片缩放方式
+             * cover: 图片铺满容器，可能裁剪边缘（适合全屏背景）
+             * contain: 完整显示图片，可能留有空白（适合需要完整展示的图片）
+             * 100% auto: 宽度适应容器，高度按比例缩放（保持原始比例）
+           - background-position: 控制图片在容器中的位置
+             * center: 图片居中显示（默认值）
+             * top/left/bottom/right: 图片对齐容器相应边缘
+             * 20% 30%: 水平20%、垂直30%位置对齐（支持百分比/像素值） */
+
+
+/* 容器样式 - 控制页面内容居中对齐 */
+.container {
+    width: 100%; /* 宽度占满父容器 */
+    max-width: var(--container-width); /* 最大宽度限制 */
+    margin: 0 auto; /* 水平居中对齐 */
+    padding: 0 var(--spacing); /* 使用变量设置左右内边距 */
+}
+
+
+.hero-content {
+    max-width: 600px; /* 内容最大宽度 - 限制文本宽度，提高可读性 */
+    margin: 200px; /* 外边距 - 移除上下外边距，仅水平居中以解决溢出问题 */
+}
+
+.hero h1 {
+    font-size: 48px; /* 标题字体大小 */
+    margin-bottom: 16px; /* 底部外边距 - 与下方元素保持距离 */
+    color: var(--light-color); /* 文本颜色 - 使用白色，与背景形成对比 */
+}
+
+.hero p {
+    font-size: 20px; /* 段落字体大小 */
+    margin-bottom: 24px; /* 底部外边距 - 与下方按钮保持距离 */
+    color: var(--light-color); /* 文本颜色 - 使用白色，与背景形成对比 */
+}
+
+.btn {
+    display: inline-block; /* 行内块元素 - 使padding生效 */
+    padding: 12px 24px; /* 内边距 - 控制按钮大小 */
+    background-color: var(--primary-color); /* 背景色 - 使用品牌主色调 */
+    color: var(--light-color); /* 文本颜色 - 白色，与背景形成对比 */
+    text-decoration: none; /* 移除下划线 */
+    border-radius: 4px; /* 边框圆角 - 使按钮边角圆润 */
+    font-weight: bold; /* 字体粗细 - 加粗显示 */
+    transition: background-color 0.3s; /* 过渡效果 - 背景色变化时平滑过渡 */
+}
+
+.btn:hover {
+    background-color: #c80000; /* 悬停状态背景色 - 加深颜色，提供反馈 */
+}
+
+/* 产品展示样式 */
+.products {
+    margin-top: 40px;
+    padding: 80px 0px; /* 上下内边距 - 控制区域大小 */
+    background-color: #F0F1F3;
+}
+
+.section-title {
+    text-align: center; /* 文本居中对齐 */
+    font-size: 32px; /* 字体大小 */
+    margin-bottom: 10px; /* 底部外边距 - 与下方内容保持距离 */
+    color: var(--secondary-color); /* 文本颜色 - 使用次要颜色 */
+}
+
+.product-grid {
+    display: grid; /* 使用网格布局 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 自动适应列数 - 最小列宽250px */
+    gap: 24px; /* 网格间距 - 控制产品卡片之间的距离 */
+}
+
+.product-card {
+    background-color: var(--light-color); /* 背景色 - 白色背景 */
+    border-radius: 8px; /* 边框圆角 - 使卡片边角圆润 */
+    overflow: hidden; /* 溢出隐藏 - 确保图片圆角显示 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 添加阴影效果 - 增强层次感 */
+}
+
+.product-image {
+    width: 100%; /* 宽度 - 占满父容器 */
+    aspect-ratio: 3/2; /* 保持3:2的宽高比 */
+    object-fit: cover; /* 确保图片覆盖整个容器，可能会裁剪图片 */
+}
+
+.product-info {
+    padding: 16px; /* 内边距 - 控制内容与边框的距离 */
+}
+
+.product-info h3 {
+    font-size: 18px; /* 标题字体大小 */
+    margin-bottom: 8px; /* 底部外边距 - 与下方内容保持距离 */
+}
+
+/* 关于我们样式 */
+.about {
+    padding: 48px 0; /* 上下内边距 - 控制区域大小 */
+    background-color: black; /* 背景色 - 使用浅灰色 */
+    /* margin: 48px 0; 上下外边距 - 与其他区域保持距离 */
+}
+
+.about-content {
+    display: flex; /* 使用弹性布局 */
+    gap: 32px; /* 间距 - 控制文本和图片之间的距离 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+.about-text {
+    flex: 1; /* 弹性系数 - 占1份宽度 */
+}
+
+.about-image {
+    flex: 1; /* 弹性系数 - 占1份宽度 */
+    height: 300px; /* 图片高度 */
+    border-radius: 8px; /* 边框圆角 - 使图片边角圆润 */
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #F0F1F3; /* 背景色 - 使用次要颜色（黑色） */
+    color: var(--light-color); /* 文本颜色 - 使用白色 */
+    padding: 48px 0 24px; /* 内边距 - 上下内边距不同 */
+}
+
+.footer-content {
+    display: grid; /* 使用网格布局 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自动适应列数 - 最小列宽200px */
+    gap: 32px; /* 网格间距 - 控制列之间的距离 */
+    margin-bottom: 32px; /* 底部外边距 - 与下方版权信息保持距离 */
+}
+
+.footer-column h3 {
+    font-size: 18px; /* 标题字体大小 */
+    margin-bottom: 16px; /* 底部外边距 - 与下方列表保持距离 */
+}
+
+.footer-column ul {
+    list-style: none; /* 移除列表默认样式 */
+}
+
+.footer-column ul li {
+    margin-bottom: 8px; /* 底部外边距 - 控制列表项之间的距离 */
+}
