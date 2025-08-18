@@ -243,7 +243,9 @@ nav {
 .product-image {
     width: 100%; /* 宽度 - 占满父容器 */
     aspect-ratio: 3/2; /* 保持3:2的宽高比 */
-    object-fit: cover; /* 确保图片覆盖整个容器，可能会裁剪图片 */
+    background-size: cover; /* 确保背景图片覆盖整个容器 */
+    background-position: center; /* 背景图片居中显示 */
+    background-repeat: no-repeat; /* 不重复背景图片 */
 }
 
 .product-info {
